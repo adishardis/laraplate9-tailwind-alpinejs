@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Requests\Api\V1;
+
+use App\Enums\PostStatus;
+use Illuminate\Foundation\Http\FormRequest;
+
+class PostRequest extends FormRequest
+{
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return match ($this->method()) {
+            'POST' => (
+                [
+                    'title' => ['required', 'string', 'max:255'],
+                    'description' => ['required', 'string', 'max:255'],
+                    'status' => ['required', 'in:'.(join(',', PostStatus::values()))],
+                ]
+            ),
+            'PUT' => (
+                [
+                    'title' => ['required', 'string', 'max:255'],
+                    'description' => ['required', 'string', 'max:255'],
+                    'status' => ['required', 'in:'.(join(',', PostStatus::values()))],
+                ]
+            )
+        };
+    }
+}
