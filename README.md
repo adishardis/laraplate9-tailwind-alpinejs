@@ -1,7 +1,10 @@
 ## About Laraplate9 Tailwind AlpineJS
+
 Laraplate9 is a boilerplate based on Laravel 9.x with Tailwind and AlpineJS to make it easier to develop features.
 
+
 ## Features
+
 Laraplate9 takes the pain out of development by easing common tasks used in many web projects, such as:
 - [Notus JS: Free Tailwind CSS UI Kit and Admin](https://github.com/creativetimofficial/notus-js).
 - Multiple role users (Super, Admin, User)
@@ -24,6 +27,7 @@ Laraplate9 takes the pain out of development by easing common tasks used in many
 - Run `php artisan storage:link`
 - Run `php artisan serve`
 
+
 ## Instalation Guide (Docker)
 
 - Clone repo with `git clone https://github.com/ramdani15/laraplate9-tailwind-alpinejs.git`
@@ -41,6 +45,10 @@ Laraplate9 takes the pain out of development by easing common tasks used in many
 - `localhost:3307` for database (based on `DOCKER_DB_PORT` in `.env`)
 - Open `localhost:8082` for phpmyadmin (based on `DOCKER_DB_PANEL_PORT` in `.env`)
 
+
+### Notes
+
+- Default `Super / Admin / User` password : `test123`
 ### Themes
 
 - **[Notus JS](https://github.com/creativetimofficial/notus-js)**
