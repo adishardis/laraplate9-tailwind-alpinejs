@@ -19,7 +19,7 @@ class CommentRepository extends BaseRepository
     /**
      * Get Post Comments for Landing
      *
-     * @return Json|Array
+     * @return Json|array
      */
     public function comments(Request $request)
     {
@@ -38,10 +38,12 @@ class CommentRepository extends BaseRepository
             $request->sortBy = 'id';
             $request->sort = -1;
             $data = $this->filterDatatable($query, $filters, $request);
+
             return CommentResource::collection($data);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Failed get post comments'));
         }
     }
@@ -49,9 +51,9 @@ class CommentRepository extends BaseRepository
     /**
      * Add comment
      *
-     * @param int $postId
-     * @param int $parentId
-     * @param array $data
+     * @param  int  $postId
+     * @param  int  $parentId
+     * @param  array  $data
      * @return array
      */
     public function addComment($postId, $parentId, $data)
@@ -61,16 +63,16 @@ class CommentRepository extends BaseRepository
         if ($parentId) {
             $parent = Comment::where([
                 'id' => $parentId,
-                'post_id' => $post->id
+                'post_id' => $post->id,
             ])->first();
 
-            if (!$parent) {
+            if (! $parent) {
                 return $this->setResponse(false, __('Parent not found'));
             }
         }
 
         $summary = $post->summary;
-        if (!$summary) {
+        if (! $summary) {
             $summary = PostSummary::create(['post_id' => $post->id]);
         }
 
@@ -79,7 +81,7 @@ class CommentRepository extends BaseRepository
                 [
                     'user_id' => $user->id,
                     'post_id' => $post->id,
-                    'parent_id' => $parentId
+                    'parent_id' => $parentId,
                 ],
                 $data
             );
@@ -101,6 +103,7 @@ class CommentRepository extends BaseRepository
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Add Comment Failed'), '', $th->getMessage());
         }
     }
@@ -108,8 +111,8 @@ class CommentRepository extends BaseRepository
     /**
      * Update comment
      *
-     * @param int $commentId
-     * @param array $data
+     * @param  int  $commentId
+     * @param  array  $data
      * @return array
      */
     public function updateComment($commentId, $data)
@@ -127,6 +130,7 @@ class CommentRepository extends BaseRepository
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Update Comment Failed'), '', $th->getMessage());
         }
     }
@@ -134,8 +138,8 @@ class CommentRepository extends BaseRepository
     /**
      * Like / Dislike Comment
      *
-     * @param int $commentId
-     * @param int $value (1/0)
+     * @param  int  $commentId
+     * @param  int  $value (1/0)
      * @return array
      */
     public function likeDislike($commentId, $value)
@@ -144,7 +148,7 @@ class CommentRepository extends BaseRepository
         $user = auth()->user();
 
         $summary = $comment->summary;
-        if (!$summary) {
+        if (! $summary) {
             $summary = CommentSummary::create(['comment_id' => $comment->id]);
         }
 
@@ -152,10 +156,10 @@ class CommentRepository extends BaseRepository
             $commentLike = $comment->userLike($user->id);
             $data = [];
 
-            if (!$commentLike) {
+            if (! $commentLike) {
                 $commentLike = CommentLike::create([
                     'comment_id' => $comment->id,
-                    'user_id' => $user->id
+                    'user_id' => $user->id,
                 ]);
             }
 
@@ -165,7 +169,7 @@ class CommentRepository extends BaseRepository
                 $data['is_dislike'] = 0;
                 $message = 'Comment liked';
 
-                if (!$commentLike->is_like) {
+                if (! $commentLike->is_like) {
                     $summary->increment('likes');
                 }
                 if ($commentLike->is_dislike) {
@@ -176,7 +180,7 @@ class CommentRepository extends BaseRepository
                 $data['is_dislike'] = 1;
                 $message = 'Comment disliked';
 
-                if (!$commentLike->is_dislike) {
+                if (! $commentLike->is_dislike) {
                     $summary->increment('dislikes');
                 }
                 if ($commentLike->is_like) {
@@ -205,6 +209,7 @@ class CommentRepository extends BaseRepository
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __(($value == 1 ? 'Like' : 'Dislike').' Failed'), '', $th->getMessage());
         }
     }

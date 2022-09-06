@@ -24,6 +24,7 @@ class PostController extends Controller
     public function index()
     {
         checkPerm('super-posts-index', true);
+
         return view('super.posts.index');
     }
 
@@ -35,6 +36,7 @@ class PostController extends Controller
     public function create()
     {
         checkPerm('super-posts-show', true);
+
         return view('super.posts.form');
     }
 
@@ -50,6 +52,7 @@ class PostController extends Controller
         $data = $request->validated();
         $data = PostRepository::createPost($data);
         setAlert($data['status'] ? 'success' : 'error', $data['message']);
+
         return redirect()->route('super.posts.index');
     }
 
@@ -73,6 +76,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         checkPerm('super-posts-show', true);
+
         return view('super.posts.form', compact('post'));
     }
 
@@ -89,6 +93,7 @@ class PostController extends Controller
         $data = $request->validated();
         $data = PostRepository::updatePost($post, $data);
         setAlert($data['status'] ? 'success' : 'error', $data['message']);
+
         return redirect()->route('super.posts.index');
     }
 
@@ -101,18 +106,20 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         checkPerm('super-posts-destroy', true);
+
         return $post->delete();
     }
 
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)
     {
         checkPerm('super-posts-index', true);
+
         return match ($request->mode) {
             'datatable' => (
                 PostRepository::datatable($request)

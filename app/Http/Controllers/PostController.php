@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Cores\ApiResponse;
+use App\Models\Post;
 use App\Models\PostSummary;
 use Facades\App\Repositories\PostRepository;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -53,6 +52,7 @@ class PostController extends Controller
     public function show(Request $request, Post $post)
     {
         $post = Post::with(['author', 'summary'])->findOrFail($post->id);
+
         return view('detail', compact('post'));
     }
 
@@ -100,6 +100,7 @@ class PostController extends Controller
     {
         checkPerm('likes-edit', true);
         $data = PostRepository::likeDislike($request->id, $request->value ?? 0);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'],
@@ -118,6 +119,7 @@ class PostController extends Controller
     {
         checkPerm('likes-index', true);
         $data = Post::findOrFail($request->id)->userLike(auth()->id());
+
         return $this->responseJson(
             $data ? 'success' : 'error',
             'Get data '.($data ? 'successfully' : 'failed'),
@@ -135,6 +137,7 @@ class PostController extends Controller
     protected function getSummary(Request $request)
     {
         $data = PostSummary::wherePostId($request->id)->first();
+
         return $this->responseJson(
             $data ? 'success' : 'error',
             'Get data '.($data ? 'successfully' : 'failed'),
@@ -146,7 +149,7 @@ class PostController extends Controller
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

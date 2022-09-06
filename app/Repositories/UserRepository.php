@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
 use App\Models\Role;
+use App\Models\User;
 use App\Resources\Super\UserResource;
 use App\Traits\DatatableTrait;
 use Illuminate\Auth\Events\Registered;
@@ -17,7 +17,7 @@ class UserRepository extends BaseRepository
     /**
      * Get Datatables Users
      *
-     * @return Json|Array
+     * @return Json|array
      */
     public function datatable(Request $request)
     {
@@ -45,13 +45,15 @@ class UserRepository extends BaseRepository
                     'relation' => 'roles',
                 ],
             ];
-            $request->sortBy =  $request->sortBy ?? 'id';
+            $request->sortBy = $request->sortBy ?? 'id';
             $request->sort = $request->sort ?? -1;
             $data = $this->filterDatatable($query, $filters, $request);
+
             return UserResource::collection($data);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Failed get users'));
         }
     }
@@ -59,8 +61,8 @@ class UserRepository extends BaseRepository
     /**
      * Create / Register User
      *
-     * @param array $data
-     * @param array $roleNames
+     * @param  array  $data
+     * @param  array  $roleNames
      * @return array
      */
     public function registerUser($data, $roleNames = ['user'])
@@ -75,11 +77,13 @@ class UserRepository extends BaseRepository
             event(new Registered($user));
 
             \DB::commit();
+
             return $this->setResponse(true, __('Register user successfully'), $user);
         } catch (\Throwable $th) {
             //throw $th;
             \DB::rollback();
             Log::error($th);
+
             return $this->setResponse(false, __('Register user user'));
         }
     }
@@ -88,32 +92,34 @@ class UserRepository extends BaseRepository
      * Update Register User
      *
      * @param App/Models/User $user
-     * @param array $data
-     * @param array $roleNames
+     * @param  array  $data
+     * @param  array  $roleNames
      * @return array
      */
     public function updateUser($user, $data, $roleNames = [])
     {
         \DB::beginTransaction();
         try {
-            if (!empty($data['password'])) {
+            if (! empty($data['password'])) {
                 $data['password'] = bcrypt($data['password']);
             } else {
                 unset($data['password']);
             }
             $user->update($data);
-            if (!empty($roleNames)) {
+            if (! empty($roleNames)) {
                 $user->roles()->detach();
                 $roles = Role::whereIn('name', $roleNames)->pluck('id')->toArray();
                 $user->attachRoles($roles);
             }
 
             \DB::commit();
+
             return $this->setResponse(true, __('Update user successfully'), $user);
         } catch (\Throwable $th) {
             //throw $th;
             \DB::rollback();
             Log::error($th);
+
             return $this->setResponse(false, __('Update user user'));
         }
     }

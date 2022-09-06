@@ -26,7 +26,9 @@ class CommentLike extends Model
         'is_dislike',
         'is_edited',
     ];
+
     protected $dateFormat = 'U';
+
     protected $dates = [
         'created_at',
         'updated_at',

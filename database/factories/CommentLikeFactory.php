@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
@@ -23,11 +23,12 @@ class CommentLikeFactory extends Factory
         $userId = Arr::random(User::select('id')->pluck('id')->toArray());
         $commentId = Arr::random(Comment::select('id')->pluck('id')->toArray());
         $like = Arr::random([0, 1]);
+
         return [
             'comment_id' => $commentId,
             'user_id' => $userId,
             'is_like' => $like,
-            'is_dislike' => !$like,
+            'is_dislike' => ! $like,
             'is_edited' => $isEditedValue,
         ];
     }

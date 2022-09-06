@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ActivityLog extends Model
 {
     use MainModel;
-    
+
     protected $fillable = [
         'logable_type',
         'logable_id',
@@ -15,7 +15,9 @@ class ActivityLog extends Model
         'log_type',
         'log_data',
     ];
+
     protected $dateFormat = 'U';
+
     protected $dates = [
         'created_at',
         'updated_at',

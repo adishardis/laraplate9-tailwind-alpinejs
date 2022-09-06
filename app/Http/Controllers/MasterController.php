@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Facades\App\Repositories\RoleRepository;
 use Facades\App\Repositories\NotificationRepository;
 use Facades\App\Repositories\ProfileRepository;
+use Facades\App\Repositories\RoleRepository;
+use Illuminate\Http\Request;
 
 class MasterController extends Controller
 {
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Cores\ApiResponse;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Facades\App\Repositories\ProfileRepository;
+use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
@@ -14,12 +14,13 @@ class FileController extends Controller
     /**
      * Get Avatar
      *
-     * @param \App\Models\User::id $userId
+     * @param  \App\Models\User::id  $userId
      * return Json
      */
     protected function getAvatar($userId)
     {
         $data = ProfileRepository::getAvatar($userId);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'] ?? '',
@@ -31,12 +32,13 @@ class FileController extends Controller
     /**
      * Update Avatar
      *
-     * @param binary $file
+     * @param  binary  $file
      * return Json
      */
     protected function updateAvatar($file)
     {
         $data = ProfileRepository::updateAvatar($file);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'] ?? '',
@@ -48,12 +50,13 @@ class FileController extends Controller
     /**
      * Get Background
      *
-     * @param \App\Models\User::id $userId
+     * @param  \App\Models\User::id  $userId
      * return Json
      */
     protected function getBackground($userId)
     {
         $data = ProfileRepository::getBackground($userId);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'] ?? '',
@@ -65,12 +68,13 @@ class FileController extends Controller
     /**
      * Update Background
      *
-     * @param binary $file
+     * @param  binary  $file
      * return Json
      */
     protected function updateBackground($file)
     {
         $data = ProfileRepository::updateBackground($file);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'] ?? '',
@@ -82,7 +86,7 @@ class FileController extends Controller
     /**
      * Handle all fetch
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

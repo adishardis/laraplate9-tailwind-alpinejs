@@ -17,67 +17,67 @@ trait ApiResponse
             'data' => [
                 'status' => true,
                 'message' => 'Data has been created successfully.',
-                'data' => []
+                'data' => [],
             ],
-            'code' => 201
+            'code' => 201,
         ],
         'updated' => [
             'data' => [
                 'status' => true,
                 'message' => 'Data updated successfully.',
-                'data' => []
+                'data' => [],
             ],
-            'code' => 200
+            'code' => 200,
         ],
         'error' => [
             'data' => [
                 'status' => false,
-                'message' => 'Something Wrong.'
+                'message' => 'Something Wrong.',
             ],
-            'code' => 400
+            'code' => 400,
         ],
         'unauth' => [
             'data' => [
                 'status' => false,
-                'message' => 'Something Wrong.'
+                'message' => 'Something Wrong.',
             ],
-            'code' => 401
+            'code' => 401,
         ],
         'deleted' => [
             'data' => [
                 'status' => false,
                 'message' => 'Data deleted successfully.',
-                'data' => []
+                'data' => [],
             ],
-            'code' => 200
+            'code' => 200,
         ],
         'pagination' => [
             'data' => [
-                'data' => []
+                'data' => [],
             ],
-            'code' => 200
+            'code' => 200,
         ],
         'default' => [
             'data' => [
                 'status' => true,
                 'message' => 'OK',
-                'data' => []
+                'data' => [],
             ],
-            'code' => 200
-        ]
+            'code' => 200,
+        ],
     ];
 
     /**
      * Response Json
      *
-     * @param String $type
-     * @param String $message
+     * @param  string  $type
+     * @param  string  $message
      * @param Array/Object $data
      * @param String/Int $code
      * @param String/Int $sort
      * @return Json
      */
-    public function responseJson($type='default', $message='', $data = [], $code='', $sort = [])
+    public function responseJson($type = 'default', $message = '', $data = [], $code = '', $sort = [])
     {
         switch ($type) {
             case 'created':
@@ -106,17 +106,17 @@ trait ApiResponse
         }
 
         if ($type != 'pagination') {
-            if (!empty($message)) {
+            if (! empty($message)) {
                 $response['data']['message'] = $message;
             }
-            if (!empty($data)) {
+            if (! empty($data)) {
                 $response['data']['data'] = $data;
             } else {
                 unset($response['data']['data']);
             }
         }
 
-        if (!empty($code)) {
+        if (! empty($code)) {
             $response['code'] = $code;
         }
 
@@ -127,7 +127,7 @@ trait ApiResponse
     /**
      * Response File
      *
-     * @param  string $type
+     * @param  string  $type
      * @return File
      */
     public function responseFile($path)
@@ -136,7 +136,7 @@ trait ApiResponse
         $file_type = File::mimeType($path);
 
         $response = Response::make($file, 200);
-        $response->header("Content-Type", $file_type);
+        $response->header('Content-Type', $file_type);
 
         return $response;
     }

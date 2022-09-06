@@ -21,6 +21,7 @@ class IsSuperMiddleware
         if ($user && $user->hasRole('super')) {
             return $next($request);
         }
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

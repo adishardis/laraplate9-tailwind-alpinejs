@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Cores\ApiResponse;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Api\Controller;
 use App\Http\Requests\Api\V1\LoginRequest;
 use App\Http\Requests\Api\V1\RegisterRequest;
+use App\Models\User;
 use Facades\App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -51,15 +51,16 @@ class AuthController extends Controller
     {
         $findUser = $user->firstWhere('email', $request->email);
 
-        if (!$findUser) {
+        if (! $findUser) {
             return $this->responseJson('error', 'Unauthorized. Email not found', '', 401);
         }
 
-        if (!Auth::attempt($request->validated())) {
+        if (! Auth::attempt($request->validated())) {
             return $this->responseJson('error', 'Unauthorized.', '', 401);
         }
 
         $token = $findUser->createToken('authToken');
+
         return $this->responseJson(
             'success',
             __('Login successfully'),
@@ -109,6 +110,7 @@ class AuthController extends Controller
     {
         $data = $request->validated();
         $data = UserRepository::registerUser($data);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'],
@@ -118,44 +120,44 @@ class AuthController extends Controller
     }
 
     /**
-    * @OA\Post(
-    *       path="/api/v1/auth/logout",
-    *       summary="Log user out ",
-    *       description="Endpoint to log current user out",
-    *       tags={"Auth"},
-    *       security={
-    *           {"token": {}}
-    *       },
-    *       @OA\Response(
-    *           response=200,
-    *           description="Logout successfully",
-    *           @OA\JsonContent(
-    *              @OA\Property(property="status", type="boolean", example=true),
-    *              @OA\Property(property="message", type="string", example="Logout successfully"),
-    *           )
-    *       ),
-    *       @OA\Response(
-    *           response=400,
-    *           description="Logout failed",
-    *           @OA\JsonContent(
-    *              @OA\Property(property="status", type="boolean", example=false),
-    *              @OA\Property(property="message", type="string", example="Logout failed"),
-    *           )
-    *       ),
-    *       @OA\Response(
-    *           response=401,
-    *           description="Unauthorized",
-    *           @OA\JsonContent(
-    *              @OA\Property(property="status", type="boolean", example=false),
-    *              @OA\Property(property="message", type="string", example="Unauthorized"),
-    *           )
-    *       ),
-    * )
-    */
+     * @OA\Post(
+     *       path="/api/v1/auth/logout",
+     *       summary="Log user out ",
+     *       description="Endpoint to log current user out",
+     *       tags={"Auth"},
+     *       security={
+     *           {"token": {}}
+     *       },
+     *       @OA\Response(
+     *           response=200,
+     *           description="Logout successfully",
+     *           @OA\JsonContent(
+     *              @OA\Property(property="status", type="boolean", example=true),
+     *              @OA\Property(property="message", type="string", example="Logout successfully"),
+     *           )
+     *       ),
+     *       @OA\Response(
+     *           response=400,
+     *           description="Logout failed",
+     *           @OA\JsonContent(
+     *              @OA\Property(property="status", type="boolean", example=false),
+     *              @OA\Property(property="message", type="string", example="Logout failed"),
+     *           )
+     *       ),
+     *       @OA\Response(
+     *           response=401,
+     *           description="Unauthorized",
+     *           @OA\JsonContent(
+     *              @OA\Property(property="status", type="boolean", example=false),
+     *              @OA\Property(property="message", type="string", example="Unauthorized"),
+     *           )
+     *       ),
+     * )
+     */
     public function logout()
     {
         $user = auth()->user();
-        if (!$user) {
+        if (! $user) {
             return $this->responseJson('error', 'Unauthorized.', '', 401);
         }
 

@@ -15,6 +15,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $id = $this->route('user') ?? null;
+
         return match ($this->method()) {
             'POST' => (
                 [

@@ -3,7 +3,6 @@
 /**
  * This file is part of Laravel Entrust,
  * Handle Role-based Permissions for Laravel.
- * 
  */
 
 return [
@@ -57,8 +56,8 @@ return [
     |
     */
     'models' => [
-        'role'          => 'App\Models\Role',
-        'permission'    => 'App\Models\Permission',
+        'role' => 'App\Models\Role',
+        'permission' => 'App\Models\Permission',
     ],
 
     /*
@@ -71,7 +70,7 @@ return [
     |
     */
     'defaults' => [
-        'guard'          => 'web',
+        'guard' => 'web',
     ],
 
     /*
@@ -83,10 +82,10 @@ return [
     |
     */
     'tables' => [
-        'roles'             => 'roles',
-        'permissions'       => 'permissions',
-        'role_user'         => 'role_user',
-        'permission_role'   => 'permission_role',
+        'roles' => 'roles',
+        'permissions' => 'permissions',
+        'role_user' => 'role_user',
+        'permission_role' => 'permission_role',
     ],
 
     /*
@@ -133,7 +132,7 @@ return [
              */
             'abort' => [
                 'code' => 403,
-                'message' => 'You don\'t Have a permission to Access this page.'
+                'message' => 'You don\'t Have a permission to Access this page.',
             ],
 
             /**
@@ -146,8 +145,8 @@ return [
                 'url' => '/',
                 'message' => [
                     'key' => 'error',
-                    'content' => 'You don\'t Have a permission to Access this page'
-                ]
+                    'content' => 'You don\'t Have a permission to Access this page',
+                ],
             ],
         ],
     ],

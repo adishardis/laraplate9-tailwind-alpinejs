@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Cores\ApiResponse;
 use App\Models\Comment;
 use App\Models\CommentSummary;
 use Facades\App\Repositories\CommentRepository;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -99,6 +98,7 @@ class CommentController extends Controller
     {
         checkPerm('likes-edit', true);
         $data = CommentRepository::likeDislike($request->id, $request->value ?? 0);
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'],
@@ -117,6 +117,7 @@ class CommentController extends Controller
     {
         checkPerm('likes-index', true);
         $data = Comment::findOrFail($request->id)->userLike(auth()->id());
+
         return $this->responseJson(
             $data ? 'success' : 'error',
             'Get data '.($data ? 'successfully' : 'failed'),
@@ -134,6 +135,7 @@ class CommentController extends Controller
     protected function getSummary(Request $request)
     {
         $data = CommentSummary::whereCommentId($request->id)->first();
+
         return $this->responseJson(
             $data ? 'success' : 'error',
             'Get data '.($data ? 'successfully' : 'failed'),
@@ -145,7 +147,7 @@ class CommentController extends Controller
     /**
      * Add comment
      *
-     * @param  array|json $request
+     * @param  array|json  $request
      * @return Json
      */
     protected function addComment($request)
@@ -157,6 +159,7 @@ class CommentController extends Controller
             $request->parent_id,
             ['comment' => $request->comment]
         );
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'],
@@ -168,7 +171,7 @@ class CommentController extends Controller
     /**
      * Update comment
      *
-     * @param  array|json $request
+     * @param  array|json  $request
      * @return Json
      */
     protected function updateComment($request)
@@ -179,6 +182,7 @@ class CommentController extends Controller
             $request->post_id,
             ['comment' => $request->comment]
         );
+
         return $this->responseJson(
             $data['status'] ? 'success' : 'error',
             $data['message'],
@@ -190,7 +194,7 @@ class CommentController extends Controller
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

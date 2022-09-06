@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
-use App\Models\PostSummary;
 use App\Models\Comment;
 use App\Models\CommentSummary;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Post;
+use App\Models\PostSummary;
 use Illuminate\Database\Seeder;
 
 class SummarySeeder extends Seeder

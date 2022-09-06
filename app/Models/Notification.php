@@ -43,9 +43,10 @@ class Notification extends Model
      */
     public function scopeByUserId($query, $userId = null)
     {
-        if (!$userId) {
+        if (! $userId) {
             $userId = auth()->id();
         }
+
         return $query->whereUserId($userId);
     }
 

@@ -12,6 +12,7 @@ class Image extends Model
     use SoftDeletes;
 
     protected $dateFormat = 'U';
+
     protected $fillable = [
         'type',
         'size',

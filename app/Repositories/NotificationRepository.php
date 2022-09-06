@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Events\ReadNotification;
 use App\Events\ReadAllNotification;
-use App\Events\UnreadNotification;
+use App\Events\ReadNotification;
 use App\Events\UnreadAllNotification;
+use App\Events\UnreadNotification;
 use App\Models\Notification;
 use App\Resources\NotificationResource;
 use App\Traits\DatatableTrait;
@@ -18,11 +18,11 @@ class NotificationRepository extends BaseRepository
     /**
      * Get Datatables Notifications
      *
-     * @return Json|Array
+     * @return Json|array
      */
     public function datatable(Request $request)
     {
-        abort_if(!auth()->user(), 401);
+        abort_if(! auth()->user(), 401);
         try {
             $query = Notification::byUserId();
             $filters = [
@@ -41,13 +41,15 @@ class NotificationRepository extends BaseRepository
                     'value' => $request->type,
                 ],
             ];
-            $request->sortBy =  $request->sortBy ?? 'id';
+            $request->sortBy = $request->sortBy ?? 'id';
             $request->sort = $request->sort ?? -1;
             $data = $this->filterDatatable($query, $filters, $request);
+
             return NotificationResource::collection($data);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Failed get notifications'));
         }
     }
@@ -59,23 +61,24 @@ class NotificationRepository extends BaseRepository
      */
     public function totalUnread()
     {
-        abort_if(!auth()->user(), 401);
+        abort_if(! auth()->user(), 401);
         $total = Notification::byUserId()->unread()->count();
+
         return [
-            'total' => $total
+            'total' => $total,
         ];
     }
 
     /**
      * Read Notifification / Read All
      *
-     * @param int $id
-     * @param string $type
+     * @param  int  $id
+     * @param  string  $type
      * @return array
      */
     public function read($id = null, $type = 'all')
     {
-        abort_if(!auth()->user(), 401);
+        abort_if(! auth()->user(), 401);
         try {
             $user = auth()->user();
             $message = '';
@@ -93,10 +96,12 @@ class NotificationRepository extends BaseRepository
                 $message = __('Read all notification successfully');
                 ReadAllNotification::dispatch($user->id);
             }
+
             return $this->setResponse(true, $message);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Read notifiaction failed'), '', $th->getMessage());
         }
     }
@@ -104,13 +109,13 @@ class NotificationRepository extends BaseRepository
     /**
      * Unread Notifification / Unread All
      *
-     * @param int $id
-     * @param string $type
+     * @param  int  $id
+     * @param  string  $type
      * @return array
      */
     public function unread($id = null, $type = 'all')
     {
-        abort_if(!auth()->user(), 401);
+        abort_if(! auth()->user(), 401);
         try {
             $user = auth()->user();
             $message = '';
@@ -128,10 +133,12 @@ class NotificationRepository extends BaseRepository
                 $message = __('Unread all notification successfully');
                 UnreadAllNotification::dispatch($user->id);
             }
+
             return $this->setResponse(true, $message);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Unread notifiaction failed'), '', $th->getMessage());
         }
     }

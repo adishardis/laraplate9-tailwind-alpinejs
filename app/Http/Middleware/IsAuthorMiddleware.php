@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -21,6 +20,7 @@ class IsAuthorMiddleware
         if ($post->user_id != auth()->id()) {
             abort(404);
         }
+
         return $next($request);
     }
 }

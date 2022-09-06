@@ -22,7 +22,7 @@ class CommentShowResource extends JsonResource
             'comment' => $this->comment,
             'is_edited' => $this->is_edited,
             'user_name' => $this->user->name ?? '',
-            'childrens' => CommentResource::collection($this->childrens)
+            'childrens' => CommentResource::collection($this->childrens),
         ];
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Enums\PostStatus;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
@@ -25,13 +25,14 @@ class PostFactory extends Factory
             $q->whereIn('name', ['super', 'admin']);
         })->pluck('id')->toArray();
         $userId = Arr::random($userIds);
+
         return [
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'description' => '<p>'.$this->faker->paragraph().'</p>',
             'status' => $status,
             'is_edited' => $isEditedValue,
-            'user_id' => $userId
+            'user_id' => $userId,
         ];
     }
 }

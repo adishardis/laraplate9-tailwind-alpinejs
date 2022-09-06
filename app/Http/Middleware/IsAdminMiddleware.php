@@ -21,6 +21,7 @@ class IsAdminMiddleware
         if ($user && $user->hasRole('admin')) {
             return $next($request);
         }
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

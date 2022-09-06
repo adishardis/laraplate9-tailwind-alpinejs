@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        if (!$user) {
+        if (! $user) {
             $route = route('home');
         } else {
             if ($user->hasRole('super')) {
@@ -26,6 +26,7 @@ class DashboardController extends Controller
                 $route = route('user.dashboard');
             }
         }
+
         return redirect($route);
     }
 }

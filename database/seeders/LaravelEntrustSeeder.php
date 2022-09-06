@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class LaravelEntrustSeeder extends Seeder
 {
@@ -25,45 +24,42 @@ class LaravelEntrustSeeder extends Seeder
         $mapPermission = collect(config('entrust_seeder.permissions_map'));
 
         foreach ($config as $key => $modules) {
-
             // Create a new role
             $role = \App\Models\Role::create([
                 'name' => $key,
                 'display_name' => ucwords(str_replace('_', ' ', $key)),
-                'description' => ucwords(str_replace('_', ' ', $key))
+                'description' => ucwords(str_replace('_', ' ', $key)),
             ]);
             $permissions = [];
 
-            $this->command->info('Creating Role '. strtoupper($key));
+            $this->command->info('Creating Role '.strtoupper($key));
 
             // Reading role permission modules
             foreach ($modules as $module => $value) {
-
                 foreach (explode(',', $value) as $p => $perm) {
-
                     $permissionValue = $mapPermission->get($perm);
 
                     $permissions[] = \App\Models\Permission::firstOrCreate([
-                        'name' => $permissionValue . '-' . $module,
-                        'display_name' => ucfirst($permissionValue) . ' ' . ucwords(str_replace('_', ' ', $module)),
-                        'description' => ucfirst($permissionValue) . ' ' . ucwords(str_replace('_', ' ', $module)),
+                        'name' => $permissionValue.'-'.$module,
+                        'display_name' => ucfirst($permissionValue).' '.ucwords(str_replace('_', ' ', $module)),
+                        'description' => ucfirst($permissionValue).' '.ucwords(str_replace('_', ' ', $module)),
                     ])->id;
 
-                    $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);
+                    $this->command->info('Creating Permission to '.$permissionValue.' for '.$module);
                 }
             }
 
             // Attach all permissions to the role
             $role->permissions()->sync($permissions);
 
-            if(isset($userRoles[$key])) {
+            if (isset($userRoles[$key])) {
                 $this->command->info("Creating '{$key}' users");
 
-                $role_users  = $userRoles[$key];
+                $role_users = $userRoles[$key];
 
                 foreach ($role_users as $role_user) {
-                    if(isset($role_user["password"])) {
-                        $role_user["password"] = Hash::make($role_user["password"]);
+                    if (isset($role_user['password'])) {
+                        $role_user['password'] = Hash::make($role_user['password']);
                     }
                     $user = \App\Models\User::create($role_user);
                     $user->attachRole($role);

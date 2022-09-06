@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\Role;
 use App\Models\Permission;
 use App\Models\PermissionRole;
+use App\Models\Role;
 use App\Resources\Super\PermissionResource;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class PermissionRepository extends BaseRepository
     /**
      * Get Datatables Permissions
      *
-     * @return Json|Array
+     * @return Json|array
      */
     public function datatable(Request $request)
     {
@@ -45,13 +45,15 @@ class PermissionRepository extends BaseRepository
                     'relation' => 'roles',
                 ],
             ];
-            $request->sortBy =  $request->sortBy ?? 'id';
+            $request->sortBy = $request->sortBy ?? 'id';
             $request->sort = $request->sort ?? -1;
             $data = $this->filterDatatable($query, $filters, $request);
+
             return PermissionResource::collection($data);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Failed get permissions'));
         }
     }
@@ -59,8 +61,8 @@ class PermissionRepository extends BaseRepository
     /**
      * Add permission to role user
      *
-     * @param array $data
-     * @param array $roleNames
+     * @param  array  $data
+     * @param  array  $roleNames
      * @return App/Models/Permission
      */
     public function addPermission($data, $roleNames = ['super'])
@@ -70,6 +72,7 @@ class PermissionRepository extends BaseRepository
         foreach ($roles as $role) {
             $role->attachPermission($permission);
         }
+
         return $permission;
     }
 
@@ -77,8 +80,8 @@ class PermissionRepository extends BaseRepository
      * Update permission role user
      *
      * @param App/Models/Permission $permission
-     * @param array $data
-     * @param array $roleNames
+     * @param  array  $data
+     * @param  array  $roleNames
      * @return App/Models/Permission
      */
     public function updatePermission($permission, $data, $roleNames = [])
@@ -89,6 +92,7 @@ class PermissionRepository extends BaseRepository
         foreach ($roles as $role) {
             $role->attachPermission($permission);
         }
+
         return $permission;
     }
 }

@@ -49,6 +49,7 @@ Laraplate9 takes the pain out of development by easing common tasks used in many
 ### Notes
 
 - Default `Super / Admin / User` password : `test123`
+- Code style fixer with [Laravel Pint](https://github.com/laravel/pint) RUN : `sh pint.sh`
 ### Themes
 
 - **[Notus JS](https://github.com/creativetimofficial/notus-js)**

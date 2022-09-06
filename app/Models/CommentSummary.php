@@ -20,7 +20,9 @@ class CommentSummary extends Model
         'likes',
         'dislikes',
     ];
+
     protected $dateFormat = 'U';
+
     protected $dates = [
         'created_at',
         'updated_at',

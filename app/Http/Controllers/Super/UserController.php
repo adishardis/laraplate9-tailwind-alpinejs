@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Super\UserRequest;
 use App\Models\User;
 use Facades\App\Repositories\UserRepository;
-use Facades\App\Repositories\RoleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -20,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         checkPerm('super-users-index', true);
+
         return view('super.users.index');
     }
 
@@ -31,6 +31,7 @@ class UserController extends Controller
     public function create()
     {
         checkPerm('super-users-show', true);
+
         return view('super.users.form');
     }
 
@@ -53,6 +54,7 @@ class UserController extends Controller
             Log::error($th);
             setAlert('error', $th->getMessage());
         }
+
         return redirect()->route('super.users.index');
     }
 
@@ -76,6 +78,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         checkPerm('super-users-show', true);
+
         return view('super.users.form', compact('user'));
     }
 
@@ -98,6 +101,7 @@ class UserController extends Controller
             Log::error($th);
             setAlert('error', $th->getMessage());
         }
+
         return redirect()->route('super.users.index');
     }
 
@@ -110,18 +114,20 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         checkPerm('super-users-destroy', true);
+
         return $user->delete();
     }
 
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)
     {
         checkPerm('super-users-index', true);
+
         return match ($request->mode) {
             'datatable' => (
                 UserRepository::datatable($request)

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Cores\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
-use Facades\App\Repositories\SummaryRepository;
 use Facades\App\Repositories\ProfileRepository;
+use Facades\App\Repositories\SummaryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -22,6 +22,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
+
         return view('user.profile.form', compact('user'));
     }
 
@@ -79,6 +80,7 @@ class ProfileController extends Controller
         $data = $request->validated();
         $data = ProfileRepository::updateProfile($data);
         setAlert($data['status'] ? 'success' : 'warning', $data['message']);
+
         return back();
     }
 
@@ -103,6 +105,7 @@ class ProfileController extends Controller
     {
         try {
             $data = SummaryRepository::getSummaryUserProfile();
+
             return $this->responseJson(
                 'success',
                 'Get summary successfully',
@@ -112,6 +115,7 @@ class ProfileController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->responseJson(
                 'error',
                 'Get summary failed',
@@ -124,7 +128,7 @@ class ProfileController extends Controller
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

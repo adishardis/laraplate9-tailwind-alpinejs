@@ -15,7 +15,7 @@ class RoleRepository extends BaseRepository
     /**
      * Get Datatables Roles
      *
-     * @return Json|Array
+     * @return Json|array
      */
     public function datatable(Request $request)
     {
@@ -33,10 +33,12 @@ class RoleRepository extends BaseRepository
                 ],
             ];
             $data = $this->filterDatatable($query, $filters, $request);
+
             return RoleResource::collection($data);
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->setResponse(false, __('Failed get roles'));
         }
     }

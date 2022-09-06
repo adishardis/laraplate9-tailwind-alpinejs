@@ -15,22 +15,22 @@ trait NotificationTrait
     /**
      * Create New Notification
      *
-     * @param  object $user
-     * @param  object $type
-     * @param  boolean $isBroadcast
+     * @param  object  $user
+     * @param  object  $type
+     * @param  bool  $isBroadcast
      * @return void
      */
     public function createNotif($user, $type, $isBroadcast = true)
     {
         $data = $this->getContent($type);
-        if (!$data) {
+        if (! $data) {
             return;
         }
         $data = array_merge(
             $data,
             [
                 'user_id' => $user->id,
-                'type' => $type
+                'type' => $type,
             ]
         );
         $notif = $this->notifications()->create($data);
@@ -44,8 +44,8 @@ trait NotificationTrait
     /**
      * Get Subject and Message based on type
      *
-     * @param  string $type
-     * @return Object Array
+     * @param  string  $type
+     * @return object Array
      */
     public function getContent($type)
     {
@@ -60,8 +60,8 @@ trait NotificationTrait
                 $postTitle = strlen($post->title) > 20 ? (substr($post->title, 0, 20).'...') : $post->title;
 
                 return [
-                    "subject"   => "New Comment for {$postTitle}.",
-                    "message"   => "New comment for {$postTitle} by {$userName} at {$date}.",
+                    'subject' => "New Comment for {$postTitle}.",
+                    'message' => "New comment for {$postTitle} by {$userName} at {$date}.",
                 ];
                 break;
             case 'new-post-like-dislike':
@@ -75,8 +75,8 @@ trait NotificationTrait
                 $postTitle = strlen($post->title) > 20 ? (substr($post->title, 0, 20).'...') : $post->title;
 
                 return [
-                    "subject"   => "New ${likeStatus} for {$postTitle}.",
-                    "message"   => "New ${likeStatus} for {$postTitle} by {$userName} at {$date}.",
+                    'subject' => "New ${likeStatus} for {$postTitle}.",
+                    'message' => "New ${likeStatus} for {$postTitle} by {$userName} at {$date}.",
                 ];
                 break;
             case 'new-comment-reply':
@@ -89,8 +89,8 @@ trait NotificationTrait
                 $postTitle = strlen($post->title) > 20 ? (substr($post->title, 0, 20).'...') : $post->title;
 
                 return [
-                    "subject"   => "New Reply for Your Comment at {$postTitle}.",
-                    "message"   => "New reply for your comment at {$postTitle} by {$userName} at {$date}.",
+                    'subject' => "New Reply for Your Comment at {$postTitle}.",
+                    'message' => "New reply for your comment at {$postTitle} by {$userName} at {$date}.",
                 ];
                 break;
             case 'new-comment-like-dislike':
@@ -106,8 +106,8 @@ trait NotificationTrait
                 $postTitle = strlen($post->title) > 20 ? (substr($post->title, 0, 20).'...') : $post->title;
 
                 return [
-                    "subject"   => "New ${likeStatus} for your comment at {$postTitle}.",
-                    "message"   => "New ${likeStatus} for your comment at {$postTitle} by {$userName} at {$date}.",
+                    'subject' => "New ${likeStatus} for your comment at {$postTitle}.",
+                    'message' => "New ${likeStatus} for your comment at {$postTitle} by {$userName} at {$date}.",
                 ];
                 break;
             default:

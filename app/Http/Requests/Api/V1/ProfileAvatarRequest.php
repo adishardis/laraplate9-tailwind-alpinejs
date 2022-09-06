@@ -14,7 +14,7 @@ class ProfileAvatarRequest extends FormRequest
     public function rules()
     {
         return [
-            'file'  => ['required', 'file', 'mimes:jpeg,bmp,png,gif,svg'],
+            'file' => ['required', 'file', 'mimes:jpeg,bmp,png,gif,svg'],
         ];
     }
 }

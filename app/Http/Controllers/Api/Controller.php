@@ -17,7 +17,7 @@ class Controller
      *   scheme="bearer",
      *   bearerFormat="JWT"
      * )
-    */
+     */
     private function swagger()
     {
         return null;

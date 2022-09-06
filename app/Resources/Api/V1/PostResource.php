@@ -2,8 +2,8 @@
 
 namespace App\Resources\Api\V1;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Resources\PostSummaryResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
 {

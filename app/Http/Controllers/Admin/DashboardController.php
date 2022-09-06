@@ -33,6 +33,7 @@ class DashboardController extends Controller
     {
         try {
             $data = SummaryRepository::getSummaryPost();
+
             return $this->responseJson(
                 'success',
                 'Get summary successfully',
@@ -42,6 +43,7 @@ class DashboardController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
             Log::error($th);
+
             return $this->responseJson(
                 'error',
                 'Get summary failed',
@@ -54,7 +56,7 @@ class DashboardController extends Controller
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)

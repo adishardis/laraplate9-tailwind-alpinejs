@@ -9,15 +9,16 @@ trait DatatableTrait
     /**
      * Filter Datatable
      *
-     * @param  Object  $obj
-     * @param  Array  $filter
+     * @param  object  $obj
+     * @param  array  $filter
      * @return object
      */
-    public function filterDatatable($query, $filters = [], $request)
+    public function filterDatatable($query, $filters, $request)
     {
         $limit = $request->limit ?? 10;
         $data = $this->filterFields($query, $filters);
         $data = $this->setOrder($query, [$request->sortBy ?? 'created_at', $request->sort ?? -1]);
+
         return $data->paginate($limit)->appends($request->input());
     }
 }

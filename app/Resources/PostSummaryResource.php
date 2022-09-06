@@ -19,7 +19,7 @@ class PostSummaryResource extends JsonResource
             'post_id' => $this->post_id,
             'likes' => $this->likes,
             'dislikes' => $this->dislikes,
-            'comments' => $this->comments
+            'comments' => $this->comments,
         ];
     }
 }

@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 use Shanmuga\LaravelEntrust\Traits\LaravelEntrustUserTrait;
 
@@ -69,12 +67,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getRoleArrayAttribute(): array
     {
         $arr = [];
-        if (!$this->roles) {
+        if (! $this->roles) {
             return $arr;
         }
         foreach ($this->roles as $role) {
             $arr[$role->id] = $role->name;
         }
+
         return $arr;
     }
 

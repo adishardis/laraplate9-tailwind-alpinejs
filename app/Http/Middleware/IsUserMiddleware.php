@@ -21,6 +21,7 @@ class IsUserMiddleware
         if ($user && $user->hasRole('user')) {
             return $next($request);
         }
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

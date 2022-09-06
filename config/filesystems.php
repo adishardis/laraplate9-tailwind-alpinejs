@@ -64,7 +64,7 @@ return [
             'path_prefix' => env('GOOGLE_CLOUD_STORAGE_PATH_PREFIX', null),
             'storage_api_uri' => env('GOOGLE_CLOUD_STORAGE_API_URI', null),
             'visibility' => 'public',
-            'options' => ['Cache-Control' => 'max-age=31536000,public']
+            'options' => ['Cache-Control' => 'max-age=31536000,public'],
         ],
 
     ],

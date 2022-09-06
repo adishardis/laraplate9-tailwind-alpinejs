@@ -3,8 +3,8 @@
 namespace App\Enums;
 
 use ArchTech\Enums\Names;
-use ArchTech\Enums\Values;
 use ArchTech\Enums\Options;
+use ArchTech\Enums\Values;
 
 enum PostStatus: string
 {

@@ -19,6 +19,7 @@ class PermissionController extends Controller
     public function index()
     {
         checkPerm('super-permissions-index', true);
+
         return view('super.permissions.index');
     }
 
@@ -30,6 +31,7 @@ class PermissionController extends Controller
     public function create()
     {
         checkPerm('super-permissions-show', true);
+
         return view('super.permissions.form');
     }
 
@@ -51,6 +53,7 @@ class PermissionController extends Controller
             Log::error($th);
             setAlert('error', $th->getMessage());
         }
+
         return redirect()->route('super.permissions.index');
     }
 
@@ -74,6 +77,7 @@ class PermissionController extends Controller
     public function edit(Permission $permission)
     {
         checkPerm('super-permissions-show', true);
+
         return view('super.permissions.form', compact('permission'));
     }
 
@@ -96,6 +100,7 @@ class PermissionController extends Controller
             Log::error($th);
             setAlert('error', $th->getMessage());
         }
+
         return redirect()->route('super.permissions.index');
     }
 
@@ -108,18 +113,20 @@ class PermissionController extends Controller
     public function destroy(Permission $permission)
     {
         checkPerm('super-permissions-destroy', true);
+
         return $permission->delete();
     }
 
     /**
      * Fetch Request
      *
-     * @param  Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function fetch(Request $request)
     {
         checkPerm('super-permissions-index', true);
+
         return match ($request->mode) {
             'datatable' => (
                 PermissionRepository::datatable($request)

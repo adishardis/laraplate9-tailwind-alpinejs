@@ -19,14 +19,14 @@ class PostRequest extends FormRequest
                 [
                     'title' => ['required', 'string', 'max:255'],
                     'description' => ['required', 'string', 'max:255'],
-                    'status' => ['required', 'in:'.(join(',', PostStatus::values()))],
+                    'status' => ['required', 'in:'.(implode(',', PostStatus::values()))],
                 ]
             ),
             'PUT' => (
                 [
                     'title' => ['required', 'string', 'max:255'],
                     'description' => ['required', 'string', 'max:255'],
-                    'status' => ['required', 'in:'.(join(',', PostStatus::values()))],
+                    'status' => ['required', 'in:'.(implode(',', PostStatus::values()))],
                 ]
             )
         };

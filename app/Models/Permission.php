@@ -10,6 +10,7 @@ class Permission extends EntrustPermission
     use HasFactory;
 
     protected $table = 'permissions';
+
     protected $fillable = [
         'name',
         'display_name',
@@ -24,12 +25,13 @@ class Permission extends EntrustPermission
     public function getRoleArrayAttribute(): array
     {
         $arr = [];
-        if (!$this->roles) {
+        if (! $this->roles) {
             return $arr;
         }
         foreach ($this->roles as $role) {
             $arr[$role->id] = $role->name;
         }
+
         return $arr;
     }
 }

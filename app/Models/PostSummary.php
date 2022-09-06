@@ -21,7 +21,9 @@ class PostSummary extends Model
         'dislikes',
         'comments',
     ];
+
     protected $dateFormat = 'U';
+
     protected $dates = [
         'created_at',
         'updated_at',

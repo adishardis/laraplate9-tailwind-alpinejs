@@ -7,8 +7,8 @@ trait ApiFilterTrait
     /**
      * Check Query
      *
-     * @param  Object  $obj
-     * @param  Array  $filter
+     * @param  object  $obj
+     * @param  array  $filter
      * @return object
      */
     public function checkQuery($obj, $filter = [])
@@ -46,14 +46,15 @@ trait ApiFilterTrait
                 $obj = $obj->where($filter['field'], $filter['value']);
                 break;
         }
+
         return $obj;
     }
 
     /**
      * Filter Fields
      *
-     * @param  Object  $obj
-     * @param  Array  $data
+     * @param  object  $obj
+     * @param  array  $data
      * @return object
      */
     public function filterFields($obj, $filters = [])
@@ -63,22 +64,24 @@ trait ApiFilterTrait
                 $obj = $this->checkQuery($obj, $filter);
             }
         }
+
         return $obj;
     }
 
     /**
      * Set Order
      *
-     * @param  Object  $obj
-     * @param  Array  $sort[By, Order]
+     * @param  object  $obj
+     * @param  array  $sort[By, Order]
      * @return object
      */
     public function setOrder($obj, $sort = [])
     {
-        if (!empty($sort[0]) && !empty($sort[1])) {
+        if (! empty($sort[0]) && ! empty($sort[1])) {
             $order = $sort[1] == -1 ? 'DESC' : 'ASC';
             $obj = $obj->orderBy($sort[0], $order);
         }
+
         return $obj;
     }
 }
