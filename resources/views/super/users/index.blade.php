@@ -39,7 +39,7 @@
                 'name' => 'Roles',
                 'field' => 'role_array',
             ]
-        ]" :urlData="'/super/additional/users?mode=datatable'">
+        ]" :urlData="'/super/fetch/users?mode=datatable'">
       <x-slot name="linkColumn">
         <div class="flex flex-wrap space-x-4">
           <x-edit-action url='users' id='row.id' isTextId="true" />
@@ -54,7 +54,7 @@
       {{-- Filtering --}}
       <div class="flex-auto p-4">
         <div x-data="{
-            url: '/super/additional/users?mode=roles',
+            url: '/fetch/masters?mode=roles',
             roleData: [],
 
             // Params
