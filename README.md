@@ -13,6 +13,7 @@ Laraplate9 takes the pain out of development by easing common tasks used in many
 - Real time notifications (with `Pusher`)
 - REST API
 - Swagger API Documentation (`/api/v1/documentation`)
+- Laravel Telescope (`/telescope`)
 
 
 ## Instalation Guide
@@ -40,7 +41,6 @@ Laraplate9 takes the pain out of development by easing common tasks used in many
 - Run `docker-compose exec app php artisan migrate:refresh --seed`
 - Run `docker-compose exec app php artisan key:generate`
 - Run `docker-compose exec app php artisan storage:link`
-- Run `docker-compose exec app php artisan serve`
 - Open `localhost:8080` for app (based on `DOCKER_NGINX_PORT` in `.env`)
 - `localhost:3307` for database (based on `DOCKER_DB_PORT` in `.env`)
 - Open `localhost:8082` for phpmyadmin (based on `DOCKER_DB_PANEL_PORT` in `.env`)
