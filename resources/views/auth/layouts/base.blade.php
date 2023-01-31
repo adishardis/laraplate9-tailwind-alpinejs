@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="{{ url('dist/notus-js/img/favicon.ico') }}" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ url('dist/notus-js/img/apple-icon.png') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ mix('dist/notus-js/css/styles.css') }}">
+    @vite('resources/dist/notus-js/css/styles.css')
     <title>{{ config('app.name') }}</title>
 </head>
 
@@ -27,7 +27,7 @@
 </body>
 {{-- Scripts --}}
 {{-- Alpine JS --}}
-<script src="{{ mix('js/app.js') }}" defer></script>
+@vite('resources/js/app.js')
 
 {{-- Vendor --}}
 <script src="{{ asset('dist/notus-js/js/app.js') }}"></script>

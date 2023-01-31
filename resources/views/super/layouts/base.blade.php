@@ -8,8 +8,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="{{ url('dist/notus-js/img/favicon.ico') }}" />
   <link rel="apple-touch-icon" sizes="76x76" href="{{ url('dist/notus-js/img/apple-icon.png') }}" />
-  <link rel="stylesheet" type="text/css" href="{{ mix('dist/notus-js/css/styles.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ mix('css/styles.css') }}">
+  @vite('resources/dist/notus-js/css/styles.css')
+  @vite('resources/css/styles.css')
 
   <title>{{ config('app.name') }}</title>
 </head>
@@ -58,14 +58,14 @@
 
   {{-- Scripts --}}
   {{-- Alpine JS --}}
-  <script src="{{ mix('js/app.js') }}" defer></script>
+  @vite('resources/js/app.js')
 
   {{-- Mix --}}
-  <script src="{{ mix('js/scripts.js') }}" defer></script>
+  @vite('resources/js/scripts.js')
 
   {{-- Vendor --}}
-  <script src="{{ mix('dist/notus-js/js/app.js') }}"></script>
-  <script src="{{ mix('dist/notus-js/vendor/js/popper.js') }}"></script>
+  @vite('resources/dist/notus-js/js/app.js')
+  @vite('resources/dist/notus-js/vendor/js/popper.js')
 
   {{-- dropzone --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"
