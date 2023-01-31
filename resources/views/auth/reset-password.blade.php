@@ -4,13 +4,13 @@
     {{-- End Page Title --}}
 
     <section class="relative w-full h-full py-40 min-h-screen">
-        <div class="absolute top-0 w-full h-full bg-blueGray-800 bg-full bg-no-repeat"
-            style="background-image: url({{ url('dist/notus-js/img/register_bg_2.png') }})"></div>
+        <div class="absolute top-0 w-full h-full bg-slate-800 bg-full bg-no-repeat"
+            style="background-image: url({{ url('notus-js/img/register_bg_2.png') }})"></div>
         <div class="container mx-auto px-4 h-full">
             <div class="flex content-center items-center justify-center h-full">
                 <div class="w-full lg:w-6/12 px-4">
                     <div
-                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-200 border-0">
 
                         {{-- Error --}}
                         <div class="text-center mt-4">
@@ -19,11 +19,11 @@
                         {{-- End Error --}}
 
                         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                            <div class="text-blueGray-400 text-center mb-3 font-bold">
-                                <h6 class="text-blueGray-500 text-sm font-bold">
+                            <div class="text-slate-400 text-center mb-3 font-bold">
+                                <h6 class="text-slate-500 text-sm font-bold">
                                     {{ __('Reset Password') }}
                                 </h6>
-                                <hr class="mt-6 border-b-1 border-blueGray-300" />
+                                <hr class="mt-6 border-b-1 border-slate-300" />
                             </div>
                             <form method="POST" action="{{ route('password.update') }}">
                                 @csrf

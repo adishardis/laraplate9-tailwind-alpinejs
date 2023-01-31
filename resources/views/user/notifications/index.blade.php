@@ -3,11 +3,11 @@
     <x-page-title :title="__('Notification')" :role="'User'" />
     {{-- End Page Title --}}
 
-    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
+    <section class="mt-48 md:mt-40 pb-40 relative bg-slate-100">
         <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <polygon class="text-slate-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
         <div class="container mx-auto">
@@ -159,7 +159,7 @@
                                     </div>
                                 </template>
                                 <template x-if="!data.read_at">
-                                    <div class="text-blueGray-500 ml-3 mb-2 mt-2 cursor-pointer"
+                                    <div class="text-slate-500 ml-3 mb-2 mt-2 cursor-pointer"
                                         x-on:click="readNotif(data.id, index)">
                                         <div class="flex">
                                             <h4 class="font-bold" x-text="data.subject"></h4>

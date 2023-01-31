@@ -1,4 +1,5 @@
 import './bootstrap';
+import '../css/app.css'; 
 
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect'
@@ -7,6 +8,7 @@ import persist from '@alpinejs/persist'
 import Swal from 'sweetalert2';
 import Dropzone from 'dropzone'
 
+window.Dropzone = Dropzone;
 
 Alpine.plugin(intersect);
 Alpine.plugin(mask);

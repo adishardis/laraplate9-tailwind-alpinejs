@@ -119,7 +119,6 @@ class PostController extends Controller
     {
         checkPerm('likes-index', true);
         $data = Post::findOrFail($request->id)->userLike(auth()->id());
-
         return $this->responseJson(
             $data ? 'success' : 'error',
             'Get data '.($data ? 'successfully' : 'failed'),

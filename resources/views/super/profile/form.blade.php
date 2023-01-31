@@ -16,16 +16,16 @@
 
     <div class="w-full mb-12 xl:mb-0 px-4">
         <div
-            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-100 border-0">
             <div class="rounded-t bg-white mb-0 px-6 py-6">
                 <div class="text-center flex justify-between">
-                    <h6 class="text-blueGray-700 text-xl font-bold">
+                    <h6 class="text-slate-700 text-xl font-bold">
                         {{ __('Profile') }}
                     </h6>
                 </div>
             </div>
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                <h6 class="text-slate-400 text-sm mt-3 mb-6 font-bold uppercase">
                     {{ __('User Information') }}
                 </h6>
                 {{ Form::model($user, ['route' => ['super.profile.update']]) }}
@@ -38,7 +38,7 @@
                                 {{ __('Username') }}
                             </x-label-input-form>
                             <input type="text"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="{{ __('Username') }}" name="username"
                                 value="{{ old('username', $user->username ?? '') }}" />
                             @if ($errors->has('username'))
@@ -52,7 +52,7 @@
                                 {{ __('Name') }}
                             </x-label-input-form>
                             <input type="text"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="{{ __('Name') }}" name="name"
                                 value="{{ old('name', $user->name ?? '') }}" />
                             @if ($errors->has('name'))
@@ -66,7 +66,7 @@
                                 {{ __('Email') }}
                             </x-label-input-form>
                             <input type="email"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="{{ __('Email') }}" name="email"
                                 value="{{ old('email', $user->email ?? '') }}" />
                             @if ($errors->has('email'))
@@ -80,7 +80,7 @@
                                 {{ __('Password') }}
                             </x-label-input-form>
                             <input type="password"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                 placeholder="{{ __('Password') }}" name="password" />
                             @if ($errors->has('password'))
                             <x-error-input message="{{ $errors->first('password') }}" />
@@ -93,7 +93,7 @@
                                 {{ __('Notif Alert') }}
                             </x-label-input-form>
                             <input type="checkbox"
-                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
+                                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
                                 placeholder="{{ __('Notif Alert') }}" name="setting[is_notif_alert]" value="1" {{
                                 old('setting.is_notif_alert') && old('setting.is_notif_alert')=='1' ? 'checked' :
                                 (($user->setting->is_notif_alert ?? 0) == '1' ? 'checked' : '')
@@ -117,7 +117,7 @@
                     </div>
                 </div>
 
-                <hr class="mt-6 border-b-1 border-blueGray-300" />
+                <hr class="mt-6 border-b-1 border-slate-300" />
 
                 <div class="flex justify-end">
                     <div class="py-6 px-3 mt-32 sm:mt-0">

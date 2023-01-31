@@ -3,11 +3,11 @@
     <x-page-title :title="__('Landing')" />
     {{-- End Page Title --}}
 
-    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
+    <section class="mt-48 md:mt-40 pb-40 relative bg-slate-100">
         <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <polygon class="text-slate-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
         <div class="container mx-auto">
@@ -70,7 +70,7 @@
                                     x-text="post.title"></a><br>
                                 <span class="text-s" x-text="`{{ __('by') }} : ` + post.author_name"></span>
                                 <i class="italic" x-show="post.is_edited">({{ __('Edited') }})</i>
-                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
+                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-slate-600"
                                     x-html="post.description">
                                 </p>
                                 <div class="mb-4">

@@ -12,23 +12,23 @@
             id="example-collapse-navbar">
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto items-center">
                 <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://www.linkedin.com/in/ramdani-ramdani-4380ba180/" target="_blank">
-                        <i class="lg:text-blueGray-200 text-blueGray-400 fab fa-linkedin text-lg leading-lg"></i>
+                        <i class="lg:text-slate-200 text-slate-400 fab fa-linkedin text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">LinkedIn</span>
                     </a>
                 </li>
                 <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://twitter.com/ramdaniB15" target="_blank">
-                        <i class="lg:text-blueGray-200 text-blueGray-400 fab fa-twitter text-lg leading-lg"></i>
+                        <i class="lg:text-slate-200 text-slate-400 fab fa-twitter text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">Twitter</span>
                     </a>
                 </li>
                 <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://github.com/ramdani15" target="_blank">
-                        <i class="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg"></i>
+                        <i class="lg:text-slate-200 text-slate-400 fab fa-github text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">GitHub</span>
                     </a>
                 </li>

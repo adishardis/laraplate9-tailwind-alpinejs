@@ -19,16 +19,16 @@
   {{-- End Nav Header --}}
 
   <div class="w-full mb-12 xl:mb-0 px-4">
-    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-100 border-0">
       <div class="rounded-t bg-white mb-0 px-6 py-6">
         <div class="text-center flex justify-between">
-          <h6 class="text-blueGray-700 text-xl font-bold">
+          <h6 class="text-slate-700 text-xl font-bold">
             {{ (isset($post) ? 'Edit' : 'Create').' Post' }}
           </h6>
         </div>
       </div>
       <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+        <h6 class="text-slate-400 text-sm mt-3 mb-6 font-bold uppercase">
           {{ __('Post Information') }}
         </h6>
         @if(isset($post))
@@ -46,7 +46,7 @@
                 {{ __('Title') }}
               </x-label-input-form>
               <input type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="{{ __('Title') }}" name="title" value="{{ old('title', $post->title ?? '') }}" />
               @if ($errors->has('title'))
               <x-error-input message="{{ $errors->first('title') }}" />
@@ -59,7 +59,7 @@
                 {{ __('Description') }}
               </x-label-input-form>
               <textarea type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="{{ __('Description') }}"
                 name="description">{{ old('description', $post->description ?? '') }}</textarea>
               @if ($errors->has('description'))
@@ -89,7 +89,7 @@
                 }
               }" x-init="initialize" x-cloak>
                 <select id="status" name="status"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                   <template x-for="(value, index) in datas">
                     <option :value="value" :selected="(oldStatus == value) ? true : false" x-text="value">
                     </option>
@@ -102,7 +102,7 @@
             </div>
           </div>
 
-          <hr class="mt-6 border-b-1 border-blueGray-300" />
+          <hr class="mt-6 border-b-1 border-slate-300" />
 
           <div class="flex justify-end">
             <div class="py-6 px-3 mt-32 sm:mt-0">

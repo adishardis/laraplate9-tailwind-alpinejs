@@ -2,7 +2,7 @@
     class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
     <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a class="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+            <a class="text-slate-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
                 href="{{ route('home') }}">{{ __('Home') }}</a><button
                 class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                 type="button" onclick="toggleNavbar('example-collapse-navbar')">
@@ -15,18 +15,18 @@
                 <li class="inline-block relative">
                     <div x-data x-cloak>
                         @auth
-                        <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                        <a class="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             href="#" x-on:click="$store.helper.openDropdown($event,'landing-user-dropdown')">
                             {{ auth()->user()->name }}
                         </a>
                         <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48 navbar-popper"
                             id="landing-user-dropdown">
                             <span
-                                class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400">
+                                class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-slate-400">
                                 {{ __('User') }}
                             </span>
                             <a href="{{ route('dashboard') }}"
-                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                                 {{ __('Dashboard') }}
                             </a>
                             @php
@@ -40,33 +40,33 @@
                             $route = $role.'.profile.index';
                             @endphp
                             <a href="{{ route($route) }}"
-                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                                 {{ __('Profile') }}
                             </a>
-                            <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+                            <div class="h-0 mx-4 my-2 border border-solid border-slate-100"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             this.closest('form').submit();"
-                                    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                                    class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                                     {{ __('Logout') }}
                                 </a>
                             </form>
                         </div>
                         @else
-                        <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                        <a class="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             href="#" x-on:click="$store.helper.openDropdown($event,'landing-guest-dropdown')">
                             {{ __('Login').'/'.__('Register') }}
                         </a>
                         <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48 navbar-popper"
                             id="landing-guest-dropdown">
-                            <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+                            <div class="h-0 mx-4 my-2 border border-solid border-slate-100"></div>
                             <a href="{{ route('login') }}"
-                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                                 {{ __('Login') }}
                             </a>
                             <a href="{{ route('register') }}"
-                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                                class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                                 {{ __('Register') }}
                             </a>
                         </div>
@@ -252,7 +252,7 @@
                         this.getUrlViewAll();
                     }
                 }" x-init="initialize" x-cloak>
-                        <a class="hover:text-blueGray-500 text-blueGray-700 block py-1 px-3 text-right" href="#"
+                        <a class="hover:text-slate-500 text-slate-700 block py-1 px-3 text-right" href="#"
                             x-on:click="changeShow($event, 'notifications-dropdown')">
                             <i class="fas fa-bell"></i><span class="ml-1" x-text="totalUnread"></span>
                         </a>
@@ -280,7 +280,7 @@
                                         </div>
                                     </template>
                                     <template x-if="!data.read_at">
-                                        <div class="text-blueGray-500 ml-3 mb-2 mt-2 cursor-pointer"
+                                        <div class="text-slate-500 ml-3 mb-2 mt-2 cursor-pointer"
                                             x-on:click="readNotif(data.id, index)">
                                             <div class="flex">
                                                 <h4 class="font-bold" x-text="data.subject"></h4>
@@ -308,23 +308,23 @@
                 </li>
                 @endauth
                 <li class="flex items-center">
-                    <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://www.linkedin.com/in/ramdani-ramdani-4380ba180/" target="_blank">
-                        <i class="text-blueGray-400 fab fa-linkedin text-lg leading-lg"></i>
+                        <i class="text-slate-400 fab fa-linkedin text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">LinkedIn</span>
                     </a>
                 </li>
                 <li class="flex items-center">
-                    <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://twitter.com/ramdaniB15" target="_blank">
-                        <i class="text-blueGray-400 fab fa-twitter text-lg leading-lg"></i>
+                        <i class="text-slate-400 fab fa-twitter text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">Twitter</span>
                     </a>
                 </li>
                 <li class="flex items-center">
-                    <a class="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                    <a class="hover:text-slate-500 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                         href="https://github.com/ramdani15" target="_blank">
-                        <i class="text-blueGray-400 fab fa-github text-lg leading-lg"></i>
+                        <i class="text-slate-400 fab fa-github text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">GitHub</span>
                     </a>
                 </li>

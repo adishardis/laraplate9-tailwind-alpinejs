@@ -206,7 +206,7 @@
                                     </div>
                                 </template>
                                 <template x-if="!data.read_at">
-                                    <div class="text-blueGray-500 ml-3 mb-2 mt-2 cursor-pointer"
+                                    <div class="text-slate-500 ml-3 mb-2 mt-2 cursor-pointer"
                                         x-on:click="readNotif(data.id, index)">
                                         <div class="flex">
                                             <h4 class="font-bold" x-text="data.subject"></h4>
@@ -234,7 +234,7 @@
             </li>
             <li>
                 <div x-data x-cloak>
-                    <a class="text-blueGray-500 block" href="#"
+                    <a class="text-slate-500 block" href="#"
                         x-on:click="$store.helper.openDropdown($event,'user-dropdown')">
                         <div x-data="{
                             image: $store.helper.defaultImage,
@@ -257,7 +257,7 @@
                             },
                         }" x-init="initialize" x-cloak class="items-center flex">
                             <span
-                                class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
+                                class="w-12 h-12 text-sm text-white bg-slate-200 inline-flex items-center justify-center rounded-full">
                                 <img alt="..." class="w-full rounded-full align-middle border-none shadow-lg"
                                     :src="image" />
                             </span>
@@ -266,18 +266,18 @@
                     <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
                         id="user-dropdown">
                         <a href="{{ route('home') }}"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                             {{ __('Home') }}
                         </a>
                         <a href="{{ route('dashboard') }}"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                             {{ __('Dashboard') }}
                         </a>
                         <a href="{{ route('super.profile.index') }}"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700">
+                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700">
                             {{ __('Profile') }}
                         </a>
-                        <div class="h-0 my-2 border border-solid border-blueGray-100"></div>
+                        <div class="h-0 my-2 border border-solid border-slate-100"></div>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 

@@ -105,7 +105,7 @@
                   {{ __('Title')}}
                 </x-label-input-form>
                 <input
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="{{ __('Title') }}" x-model="title" id="title"
                   x-on:change="setQueryParams('title', title)" />
               </div>
@@ -118,7 +118,7 @@
                   {{ __('Description')}}
                 </x-label-input-form>
                 <input
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="{{ __('Description') }}" x-model="description" id="description"
                   x-on:change="setQueryParams('description', description)" />
               </div>
@@ -129,7 +129,7 @@
           <div class="w-full text-right p-4">
             {{-- Refresh --}}
             <button
-              class="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              class="bg-sky-500 text-white active:bg-sky-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button" x-on:click="reset()">
               <i class="fa fa-eraser"></i>&nbsp;&nbsp;{{ __('Reset') }}
             </button>

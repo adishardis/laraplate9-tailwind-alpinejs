@@ -162,7 +162,7 @@
                             </div>
                         </template>
                         <template x-if="!data.read_at">
-                            <div class="text-blueGray-500 ml-3 mb-2 mt-2 cursor-pointer"
+                            <div class="text-slate-500 ml-3 mb-2 mt-2 cursor-pointer"
                                 x-on:click="readNotif(data.id, index)">
                                 <div class="flex">
                                     <h4 class="font-bold" x-text="data.subject"></h4>

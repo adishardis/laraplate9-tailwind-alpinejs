@@ -101,7 +101,7 @@
                   {{ __('Role')}}
                 </x-label-input-form>
                 <select
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   x-model="roleName" id="roleName" x-on:change="setQueryParams('role', roleName)">
                   <option value="">{{ __('Select Role') }}</option>
                   <template x-for="data in roleData">
@@ -119,7 +119,7 @@
                   {{ __('Name')}}
                 </x-label-input-form>
                 <input
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="{{ __('Name') }}" x-model="name" id="name" x-on:change="setQueryParams('name', name)" />
               </div>
             </div>
@@ -131,7 +131,7 @@
                   {{ __('Email')}}
                 </x-label-input-form>
                 <input
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="{{ __('Email') }}" x-model="email" id="email"
                   x-on:change="setQueryParams('email', email)" />
               </div>
@@ -142,7 +142,7 @@
           <div class="w-full text-right p-4">
             {{-- Refresh --}}
             <button
-              class="bg-lightBlue-500 text-white active:bg-lightBlue-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              class="bg-sky-500 text-white active:bg-sky-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button" x-on:click="reset()">
               <i class="fa fa-eraser"></i>&nbsp;&nbsp;{{ __('Reset') }}
             </button>

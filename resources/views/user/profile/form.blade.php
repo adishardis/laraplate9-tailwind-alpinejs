@@ -32,11 +32,11 @@
                 style="transform: translateZ(0px)">
                 <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                    <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                    <polygon class="text-slate-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
                 </svg>
             </div>
         </section>
-        <section class="relative py-16 bg-blueGray-200">
+        <section class="relative py-16 bg-slate-200">
             <div class="container mx-auto px-4">
                 <div
                     class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
@@ -94,19 +94,19 @@
                                         }
                                     }" x-init="initialize" x-cloak>
                                     <div class="mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-600"
                                             x-text="totalLikes"></span>
-                                        <span class="text-sm text-blueGray-400">{{ __('Liked') }}</span>
+                                        <span class="text-sm text-slate-400">{{ __('Liked') }}</span>
                                     </div>
                                     <div class="mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-600"
                                             x-text="totalDislikes"></span>
-                                        <span class="text-sm text-blueGray-400">{{ __('Disliked') }}</span>
+                                        <span class="text-sm text-slate-400">{{ __('Disliked') }}</span>
                                     </div>
                                     <div class="lg:mr-4 p-3 text-center">
-                                        <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600"
+                                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-600"
                                             x-text="totalComments"></span>
-                                        <span class="text-sm text-blueGray-400">{{ __('Comments') }}</span>
+                                        <span class="text-sm text-slate-400">{{ __('Comments') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -116,15 +116,15 @@
                             userEmail: '{{ $user->email ?? '' }}',
                         }" x-cloak>
                             <div class="text-center mt-12">
-                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700"
+                                <h3 class="text-4xl font-semibold leading-normal mb-2 text-slate-700"
                                     x-model="userName" x-text="userName">
                                 </h3>
-                                <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                    <i class="fas fa-envelope mr-2 text-lg text-blueGray-400"></i>
+                                <div class="text-sm leading-normal mt-0 mb-2 text-slate-400 font-bold uppercase">
+                                    <i class="fas fa-envelope mr-2 text-lg text-slate-400"></i>
                                     <span x-model="userEmail" x-text="userEmail"></span>
                                 </div>
                             </div>
-                            <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+                            <div class="mt-10 py-10 border-t border-slate-200 text-center">
                                 <div class="flex flex-wrap justify-center">
                                     <div class="w-full lg:w-9/12 px-4">
                                         {{ Form::model($user, ['route' => ['user.profile.update']]) }}
@@ -137,7 +137,7 @@
                                                         {{ __('Username') }}
                                                     </x-label-input-form>
                                                     <input type="text"
-                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                         placeholder="{{ __('Username') }}" name="username"
                                                         value="{{ old('username', $user->username ?? '') }}" />
                                                     @if ($errors->has('username'))
@@ -151,7 +151,7 @@
                                                         {{ __('Name') }}
                                                     </x-label-input-form>
                                                     <input type="text"
-                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                         placeholder="{{ __('Name') }}" x-model="userName" name="name"
                                                         value="{{ old('name', $user->name ?? '') }}" />
                                                     @if ($errors->has('name'))
@@ -165,7 +165,7 @@
                                                         {{ __('Email') }}
                                                     </x-label-input-form>
                                                     <input type="email"
-                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                         placeholder="{{ __('Email') }}" x-model="userEmail" name="email"
                                                         value="{{ old('email', $user->email ?? '') }}" />
                                                     @if ($errors->has('email'))
@@ -179,7 +179,7 @@
                                                         {{ __('Password') }}
                                                     </x-label-input-form>
                                                     <input type="password"
-                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                         placeholder="{{ __('Password') }}" name="password" />
                                                     @if ($errors->has('password'))
                                                     <x-error-input message="{{ $errors->first('password') }}" />
@@ -192,7 +192,7 @@
                                                         {{ __('Notif Alert') }}
                                                     </x-label-input-form>
                                                     <input type="checkbox"
-                                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
+                                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
                                                         placeholder="{{ __('Notif Alert') }}"
                                                         name="setting[is_notif_alert]" value="1" {{
                                                         old('setting.is_notif_alert') &&
@@ -233,7 +233,7 @@
                                             </div>
                                         </div>
 
-                                        <hr class="mt-6 border-b-1 border-blueGray-300" />
+                                        <hr class="mt-6 border-b-1 border-slate-300" />
 
                                         <div class="flex justify-end">
                                             <div class="py-6 px-3 mt-32 sm:mt-0">

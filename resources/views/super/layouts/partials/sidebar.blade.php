@@ -7,7 +7,7 @@
             type="button" onclick="$store.helper.toggleNavbar('example-collapse-sidebar')">
             <i class="fas fa-bars"></i>
         </button>
-        <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+        <a class="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             href="{{ route('home') }}">
             {{ __('Home') }}
         </a>
@@ -18,10 +18,10 @@
 
         <div class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded hidden"
             id="example-collapse-sidebar">
-            <div class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
+            <div class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-slate-200">
                 <div class="flex flex-wrap">
                     <div class="w-6/12">
-                        <a class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                        <a class="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                             href="{{ route('home') }}">
                             Notus JS
                         </a>
@@ -38,13 +38,13 @@
             <form class="mt-6 mb-4 md:hidden">
                 <div class="mb-3 pt-0">
                     <input type="text" placeholder="Search"
-                        class="px-3 py-2 h-12 border border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal" />
+                        class="px-3 py-2 h-12 border border-solid border-slate-500 placeholder-slate-300 text-slate-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal" />
                 </div>
             </form>
             <!-- Divider -->
             <hr class="my-4 md:min-w-full" />
             <!-- Heading -->
-            <h6 class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <h6 class="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
                 Admin Layout Pages
             </h6>
             <!-- Navigation -->

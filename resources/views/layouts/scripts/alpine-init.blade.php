@@ -10,7 +10,7 @@
 
       // Helpers
       Alpine.store('helper', {
-        defaultImage: `{{ url('dist/notus-js/img/team-1-800x800.jpg') }}`,
+        defaultImage: `{{ url('notus-js/img/team-1-800x800.jpg') }}`,
         defaultBackgroundImage: `https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80`,
         async getAvatarThumb() {
           return fetch('/fetch/master?mode=get-avatar-thumb')

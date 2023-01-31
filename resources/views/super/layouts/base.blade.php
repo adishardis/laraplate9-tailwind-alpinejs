@@ -6,21 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ url('dist/notus-js/img/favicon.ico') }}" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ url('dist/notus-js/img/apple-icon.png') }}" />
-  @vite('resources/dist/notus-js/css/styles.css')
-  @vite('resources/css/styles.css')
+  <link rel="shortcut icon" href="{{ url('notus-js/img/favicon.ico') }}" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url('notus-js/img/apple-icon.png') }}" />
+    @vite('resources/js/app.js')
 
   <title>{{ config('app.name') }}</title>
 </head>
 
-<body class="text-blueGray-700 antialiased">
+<body class="text-slate-700 antialiased">
   <div id="root">
     {{-- Sidebar --}}
     @include('super.layouts.partials.sidebar')
     {{-- End Sidebar --}}
 
-    <div class="relative md:ml-64 bg-blueGray-50">
+    <div class="relative md:ml-64 bg-slate-50">
 
       {{-- Notifications --}}
       @include('layouts.notif-alert')
@@ -56,24 +55,8 @@
     </div>
   </div>
 
-  {{-- Scripts --}}
-  {{-- Alpine JS --}}
-  @vite('resources/js/app.js')
-
-  {{-- Mix --}}
-  @vite('resources/js/scripts.js')
-
-  {{-- Vendor --}}
-  @vite('resources/dist/notus-js/js/app.js')
-  @vite('resources/dist/notus-js/vendor/js/popper.js')
-
-  {{-- dropzone --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"
-    integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w=="
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css"
-    integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A=="
-    crossorigin="anonymous" />
+  <script type="text/javascript" src="{{asset('notus-js/js/script.js')}}"></script>
+  <script type="text/javascript" src="{{asset('notus-js/vendor/js/popper.js')}}"></script>
 
   @include('layouts.scripts.alpine-init')
 

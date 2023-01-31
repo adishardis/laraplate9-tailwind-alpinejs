@@ -3,11 +3,11 @@
     <x-page-title :title="$post->title" />
     {{-- End Page Title --}}
 
-    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
+    <section class="mt-48 md:mt-40 pb-40 relative bg-slate-100">
         <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0)">
             <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
                 version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                <polygon class="text-slate-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
             </svg>
         </div>
         <div class="container mx-auto">
@@ -293,7 +293,7 @@
                                 <h6 class="text-xl mb-1 font-semibold" x-text="post.title"></h6>
                                 <span class="text-s" x-text="`{{ __('by') }} : ` + post.author?.name"></span>
                                 <i class="italic" x-show="post.is_edited">({{ __('Edited') }})</i>
-                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
+                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-slate-600"
                                     x-html="post.description">
                                 </p>
 
@@ -412,7 +412,7 @@
                                                 &nbsp;({{ __('Edited') }})
                                             </i>
                                         </div>
-                                        <p class="text-lg font-light leading-relaxed text-blueGray-600"
+                                        <p class="text-lg font-light leading-relaxed text-slate-600"
                                             x-text="comment.comment"></p>
 
                                         {{-- Likes and Dislikes Comments --}}
@@ -472,7 +472,7 @@
                                                         &nbsp;({{ __('Edited') }})
                                                     </i>
                                                 </div>
-                                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
+                                                <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-slate-600"
                                                     x-text="child.comment"></p>
 
                                                 {{-- Likes and Dislikes Reply Comments --}}
@@ -522,7 +522,7 @@
                                                 <hr>
                                                 <label>{{ __('Reply comment') }}</label>
                                                 <textarea type="text"
-                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                     placeholder="{{ __('Your comments') }}"
                                                     x-model="commentReplyInput[comment.id]"></textarea>
                                                 <button
@@ -552,7 +552,7 @@
                                     <hr>
                                     <label>{{ __('Add comment') }}</label>
                                     <textarea type="text"
-                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                         placeholder="{{ __('Your comments') }}" x-model="commentInput"></textarea>
                                     <button
                                         class="flex bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
